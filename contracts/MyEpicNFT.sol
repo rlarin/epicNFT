@@ -12,10 +12,12 @@ contract MyEpicNFT is ERC721URIStorage {
     // Magic given to us by OpenZeppelin to help us keep track of tokenIds.
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
+    string jsonEncoded = "data:application/json;base64,ewogICJuYW1lIjogIlJhaW5lciBMYXJpbiIsCiAgImRlc2NyaXB0aW9uIjogIk15IFJMIE5GVCBjb2xsZWN0aW9uIiwKICAiaW1hZ2UiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhCeVpYTmxjblpsUVhOd1pXTjBVbUYwYVc4OUluaE5hVzVaVFdsdUlHMWxaWFFpSUhacFpYZENiM2c5SWpBZ01DQXpOVEFnTXpVd0lqNEtJQ0FnSUR4emRIbHNaVDR1WW1GelpTQjdJR1pwYkd3NklIZG9hWFJsT3lCbWIyNTBMV1poYldsc2VUb2djMlZ5YVdZN0lHWnZiblF0YzJsNlpUb2dNVFJ3ZURzZ2ZUd3ZjM1I1YkdVK0NpQWdJQ0E4Y21WamRDQjNhV1IwYUQwaU1UQXdKU0lnYUdWcFoyaDBQU0l4TURBbElpQm1hV3hzUFNKaWJHRmpheUlnTHo0S0lDQWdJRHgwWlhoMElIZzlJalV3SlNJZ2VUMGlOVEFsSWlCamJHRnpjejBpWW1GelpTSWdaRzl0YVc1aGJuUXRZbUZ6Wld4cGJtVTlJbTFwWkdSc1pTSWdkR1Y0ZEMxaGJtTm9iM0k5SW0xcFpHUnNaU0krVW1GcGJtVnlUR0Z5YVc0OEwzUmxlSFErQ2p3dmMzWm5QZz09Igp9";
+
 
     // We pass the name of our NFTs token and it's symbol.
-    constructor() ERC721 ("SquareNFT", "SQUARE") {
-        console.log("This is my NFT contract. Woah!");
+    constructor() ERC721 ("RainerLarinNFT", "LARIN") {
+        console.log("This is my NFT smart contract. Woah!");
     }
 
     // A function our user will hit to get their NFT.
@@ -27,7 +29,7 @@ contract MyEpicNFT is ERC721URIStorage {
         _safeMint(msg.sender, newItemId);
 
         // Set the NFTs data.
-        _setTokenURI(newItemId, "https://jsonkeeper.com/b/J5YN");
+        _setTokenURI(newItemId, jsonEncoded);
         console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
 
         // Increment the counter for when the next NFT is minted.
